@@ -1,36 +1,31 @@
-import login from "../../fixtures/login.json"
-import mainPage from "../../fixtures/mainPage.json"
-import addProducts from "../../fixtures/addProducts.json"
+import addProducts from "../../Functions/addProducts.js"
 import loginPage from "../../Functions/loginPage"
+import sortProducts from "../../Functions/sortProducts"
+import logOut from "../../Functions/logOut"
+import takeData from "../../Functions/takeData"
+import goToWebsite from "../../Functions/goToWebsite"
+
+
 // import removeProducts from "../../fixtures/removeProducts.json"
 // "defaultCommandTimeout": 5000 in caz ca se incarca prea repede pagina si nu se face testul
 describe('Saucedemo App', () => {
-    before(()=>{
-
+    before('grab login credentials data', () => {
+        takeData.readFiles()
     })
     it('Visit SwagLabs', () => {
-        cy.visit('/')
-        cy.get(login.loginLogo).should('be.visible')
+        goToWebsite.visitWebsite()
     })
-     it('Login in your account', () => {
-         loginPage.loginUsingEmailAndPassword()
-     })
-    it('Add Products to cart', ()=>{
-        cy.get(addProducts.backpack).click()
-        cy.get(mainPage.shoppingCartBadge).should('be.visible')
-        cy.get(addProducts.bikeLight).click()
-        cy.get(mainPage.shoppingCartBadge).should('include.text', '2')
-        // cy.get('.shopping_cart_link').click()
+    it('Login in your account', () => {
+        loginPage.loginUsingEmailAndPassword()
     })
-    it('Sort products High to Low Price', ()=>{
-        cy.get(mainPage.sortList).select('Price (high to low)')
-        cy.get(mainPage.sortList).should('include.text', 'Price (high to low)')
+    it('Add Products to cart', () => {
+        addProducts.addProductsInCart()
     })
-    after(() => {
-        cy.get('#react-burger-menu-btn').click()
-        cy.get('.bm-menu').should('be.visible')
-        cy.get('#logout_sidebar_link').click()
-        cy.get(login.loginLogo).should('be.visible')
+    it('Sort products High to Low Price', () => {
+        sortProducts.sortProductsHighToLow()
+    })
+    after('We will log out after all test',() => {
+        logOut.logOutFromApp()
     })
     // it('Remove an item from Cart',()=>{
     //     cy.get(removeProducts.backPack).click()
