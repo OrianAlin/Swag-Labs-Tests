@@ -4,6 +4,7 @@ import sortProducts from "../../Functions/sortProducts"
 import logOut from "../../Functions/logOut"
 import takeData from "../../Functions/takeData"
 import goToWebsite from "../../Functions/goToWebsite"
+import 'cypress-iframe'
 
 
 // import removeProducts from "../../fixtures/removeProducts.json"
@@ -24,7 +25,7 @@ describe('Saucedemo App', () => {
     it('Sort products High to Low Price', () => {
         sortProducts.sortProductsHighToLow()
     })
-    after('We will log out after all test',() => {
+    after('We will log out after all test', () => {
         logOut.logOutFromApp()
     })
     // it('Remove an item from Cart',()=>{
