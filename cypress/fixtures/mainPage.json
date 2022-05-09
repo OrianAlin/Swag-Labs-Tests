@@ -1,0 +1,5 @@
+{
+  "mainLogo": ".app_logo",
+  "shoppingCartBadge": ".shopping_cart_badge",
+  "sortList": "[data-test='product_sort_container']"
+}

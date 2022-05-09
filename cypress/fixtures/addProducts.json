@@ -1,0 +1,4 @@
+{
+  "backpack": "[data-test='add-to-cart-sauce-labs-backpack']",
+  "bikeLight": "[data-test='add-to-cart-sauce-labs-bike-light']"
+}
