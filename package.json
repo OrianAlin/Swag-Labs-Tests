@@ -2,6 +2,7 @@
   "name": "Saucedemo",
   "version": "1.0.0",
   "devDependencies": {
+    "cypress": "^9.6.1",
     "cypress-iframe": "^1.0.1"
   }
 }
