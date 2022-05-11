@@ -7,17 +7,14 @@ let addProductsInCart = () =>{
     cy.get(mainPage.shoppingCartBadge).should('be.visible')
     cy.get(addProducts.bikeLight).click()
     cy.get(mainPage.shoppingCartBadge).should('include.text', '2')
-    cy.wait(1000)
 }
 let sortProductsHighToLow = () =>{
     cy.get(mainPage.sortList).select('Price (high to low)')
     cy.get(mainPage.sortList).should('include.text', 'Price (high to low)')
-    cy.wait(1000)
 }
 let logOutFromApp = () =>{
     cy.get('#react-burger-menu-btn').click()
     cy.get('.bm-menu').should('be.visible')
-    cy.wait(1000)
     cy.get('#logout_sidebar_link').click()
     cy.get(login.loginLogo).should('be.visible')
 }
