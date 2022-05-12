@@ -23,7 +23,7 @@ describe('Saucedemo App', () => {
 
     })
     it('Login in your account', () => {
-        cy.log(username)
+        cy.log(username+"  ss")
         loginPage.loginUsingEmailAndPassword(username, password)
     })
     it('Add Products to cart', () => {
