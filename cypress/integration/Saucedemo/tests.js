@@ -25,12 +25,15 @@ describe('Saucedemo App', () => {
     it('Login in your account', () => {
         cy.log(username+"  ss")
         loginPage.loginUsingEmailAndPassword(username, password)
+        cy.wait(2000)
     })
     it('Add Products to cart', () => {
         mainPage.addProductsInCart()
+        cy.wait(2000)
     })
     it('Sort products High to Low Price', () => {
         mainPage.sortProductsHighToLow()
+        cy.wait(2000)
     })
     after('We will log out after all test', () => {
 
